@@ -184,7 +184,7 @@ impl ScalingRenderer {
             vertex: wgpu::VertexState {
                 module: &module,
                 entry_point: Some("vs_main"),
-                buffers: std::slice::from_ref(&vertex_buffer_layout),
+                buffers: &[Some(vertex_buffer_layout.clone())],
                 compilation_options: wgpu::PipelineCompilationOptions::default(),
             },
             primitive: wgpu::PrimitiveState::default(),
@@ -209,7 +209,7 @@ impl ScalingRenderer {
             vertex: wgpu::VertexState {
                 module: &module_fill,
                 entry_point: Some("vs_main"),
-                buffers: std::slice::from_ref(&vertex_buffer_layout),
+                buffers: &[Some(vertex_buffer_layout.clone())],
                 compilation_options: wgpu::PipelineCompilationOptions::default(),
             },
             primitive: wgpu::PrimitiveState::default(),

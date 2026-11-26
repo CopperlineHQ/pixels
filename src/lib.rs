@@ -645,7 +645,7 @@ impl<'win> Pixels<'win> {
         (render_function)(&mut encoder, &view, &self.context)?;
 
         self.context.queue.submit(Some(encoder.finish()));
-        frame.present();
+        self.context.queue.present(frame);
         Ok(())
     }
 
@@ -658,6 +658,7 @@ impl<'win> Pixels<'win> {
             &wgpu::SurfaceConfiguration {
                 usage: wgpu::TextureUsages::RENDER_ATTACHMENT,
                 format: self.surface_texture_format,
+                color_space: wgpu::SurfaceColorSpace::Auto,
                 width: self.surface_size.width,
                 height: self.surface_size.height,
                 present_mode: self.present_mode,

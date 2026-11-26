@@ -37,6 +37,7 @@ impl<'req, 'dev, 'win, W: wgpu::WindowHandle + raw_window_handle::HasDisplayHand
     ///         power_preference: PowerPreference::HighPerformance,
     ///         force_fallback_adapter: false,
     ///         compatible_surface: None,
+    ///         apply_limit_buckets: false,
     ///     })
     ///     .enable_vsync(false)
     ///     .build()?;
@@ -290,11 +291,13 @@ impl<'req, 'dev, 'win, W: wgpu::WindowHandle + raw_window_handle::HasDisplayHand
                             compatible_surface,
                             force_fallback_adapter: false,
                             power_preference: wgpu::PowerPreference::from_env().unwrap_or_default(),
+                            apply_limit_buckets: false,
                         },
                         |rao| wgpu::RequestAdapterOptions {
                             compatible_surface: rao.compatible_surface.or(compatible_surface),
                             force_fallback_adapter: rao.force_fallback_adapter,
                             power_preference: rao.power_preference,
+                            apply_limit_buckets: rao.apply_limit_buckets,
                         },
                     ))
                     .await
