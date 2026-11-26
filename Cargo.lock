@@ -3023,7 +3023,6 @@ dependencies = [
  "raw-window-handle",
  "thiserror 2.0.19",
  "ultraviolet",
- "wgpu 29.0.4",
  "wgpu 30.0.2",
  "winit",
 ]
@@ -4543,7 +4542,7 @@ dependencies = [
  "thiserror 2.0.19",
  "wgpu-core-deps-apple 29.0.4",
  "wgpu-core-deps-emscripten 29.0.4",
- "wgpu-core-deps-wasm",
+ "wgpu-core-deps-wasm 29.0.4",
  "wgpu-core-deps-windows-linux-android 29.0.4",
  "wgpu-hal 29.0.4",
  "wgpu-naga-bridge 29.0.4",
@@ -4578,6 +4577,7 @@ dependencies = [
  "thiserror 2.0.19",
  "wgpu-core-deps-apple 30.0.2",
  "wgpu-core-deps-emscripten 30.0.2",
+ "wgpu-core-deps-wasm 30.0.2",
  "wgpu-core-deps-windows-linux-android 30.0.2",
  "wgpu-hal 30.0.2",
  "wgpu-naga-bridge 30.0.2",
@@ -4627,6 +4627,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "af1fb1798be2a912497d4c224f72d39bb0cb34af50e8bcc29865bc339c943059"
 dependencies = [
  "wgpu-hal 29.0.4",
+]
+
+[[package]]
+name = "wgpu-core-deps-wasm"
+version = "30.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b20f43aeb9962d05e61e3ccb717e2e27ba1b04e979d4ca7e361384f8ee03db56"
+dependencies = [
+ "wgpu-hal 30.0.2",
 ]
 
 [[package]]
